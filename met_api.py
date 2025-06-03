@@ -25,8 +25,8 @@ def get_random_artwork():
         "url": art_data.get("objectURL"),
     }
 
-# def search_artwork(query):
-#     response = requests.get(f"{BASE_URL}/search", params={"q": query})
+# def search_artwork_title(query):
+#     response = requests.get(f"{BASE_URL}/search", params={"title": query})
 #     data = response.json()
     
 #     if not data["objectIDs"]:

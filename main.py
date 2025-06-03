@@ -3,7 +3,7 @@ from discord.ext import commands
 
 import os
 from dotenv import load_dotenv
-from met_api import get_random_artwork, get_departments, get_artworks_by_department
+from met_api import get_random_artwork, get_departments, get_artworks_by_department#, search_artwork_title
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -38,21 +38,27 @@ async def art(ctx):
     # If no image found after retries:
     await ctx.send("Sorry, I couldn’t find any artwork images after several tries. Please try again later!")
 
-# @bot.command(name="search", help="Search for an artwork by keyword")
-# async def search(ctx, *, query):
-#     art = search_artwork(query)
-    
-#     if not art or not art["image"]:
-#         await ctx.send("No artwork found for that keyword!")
-#         return
-    
-#     embed = discord.Embed(
-#         title=art["title"],
-#         url=art["url"],
-#         description=f"Artist: {art['artist']}\nDate: {art['date']}"
-#     )
-#     embed.set_image(url=art["image"])
-#     await ctx.send(embed=embed)
+# @bot.command(name="title", help="Search for an artwork by keyword in title")
+# async def search_title(ctx, *, query):
+#     max_retries = 3
+#     for attempt in range(max_retries):
+#         art = search_artwork_title(query)
+        
+#         if not art: 
+#             await ctx.send("No artwork found for that keyword!")
+#             return
+        
+#         if art["image"]:
+#             embed = discord.Embed(
+#                 title=art["title"], 
+#                 url=art["url"], 
+#                 description=f"Artist: {art['artist']}\nDate: {art['date']}"
+#             )
+#             embed.set_image(url=art["image"])
+#             await ctx.send(embed=embed)
+#             return
+#     # If no image found after retries:
+#     await ctx.send("Sorry, I couldn’t find any artwork images after several tries. Please try again later!")
 
 @bot.command(name="department-id", help="Get department IDs for each art department")
 async def find_department_ids(ctx): 
