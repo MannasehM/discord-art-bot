@@ -38,28 +38,6 @@ async def art(ctx):
     # If no image found after retries:
     await ctx.send("Sorry, I couldn’t find any artwork images after several tries. Please try again later!")
 
-# @bot.command(name="title", help="Search for an artwork by keyword in title")
-# async def search_title(ctx, *, query):
-#     max_retries = 3
-#     for attempt in range(max_retries):
-#         art = search_artwork_title(query)
-        
-#         if not art: 
-#             await ctx.send("No artwork found for that keyword!")
-#             return
-        
-#         if art["image"]:
-#             embed = discord.Embed(
-#                 title=art["title"], 
-#                 url=art["url"], 
-#                 description=f"Artist: {art['artist']}\nDate: {art['date']}"
-#             )
-#             embed.set_image(url=art["image"])
-#             await ctx.send(embed=embed)
-#             return
-#     # If no image found after retries:
-#     await ctx.send("Sorry, I couldn’t find any artwork images after several tries. Please try again later!")
-
 @bot.command(name="department-id", help="Get department IDs for each art department")
 async def find_department_ids(ctx): 
     departments_data = get_departments()
